@@ -9,8 +9,7 @@
 
 void erreur(char *message, int code);
 void gen_key(unsigned char *key, size_t length);
-void xor_cipher(unsigned char *msg, unsigned char *key, size_t msg_len,
-                size_t key_len);
+void xor_cipher(unsigned char *msg, unsigned char *key, size_t msg_len,size_t key_len);
 void test_gen_key();
 void test_xor_cipher();
 
