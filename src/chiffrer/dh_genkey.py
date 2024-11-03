@@ -63,7 +63,7 @@ print("Paramètres publics : g = {}, p = {}\n".format(g, p))
 q_alice = Queue()
 q_bob = Queue()
 
-# Lancer les threads pour Alice et Bob
+# On lance les threads pour Alice et Bob
 print("Démarrage de l'échange de clés\n")
 t_alice = threading.Thread(target=alice, args=(q_alice, a, p, g))
 t_bob = threading.Thread(target=bob, args=(q_bob, b, p, g))
