@@ -112,10 +112,10 @@ void test_xor_cipher() {
 
   // Test 3 : Vérifier que le chiffrement fonctionne correctement avec des
   // tailles de clé plus petites que le message
-  unsigned char short_key[] = "abc"; // Clé de 3 caractères
+  unsigned char short_key[] = "abc"; 
   size_t short_key_len = strlen((const char *)short_key);
 
-  // Copier le message original
+
   strcpy((char *)msg, (const char *)original_msg);
 
   // Chiffrer avec une petite clé
