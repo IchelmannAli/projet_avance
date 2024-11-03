@@ -51,11 +51,13 @@ def calcul_cle(q_alice: Queue, q_bob: Queue, a: int, b: int, p: int):
 
 
 # Lecture des paramètres du fichier param.txt
-with open('param.txt', 'r') as f:
-    p = int(f.readline().strip())  # Nombre premier p (modulo)
-    g = int(f.readline().strip())  # Générateur g
-    a = int(f.readline().strip())  # Exposant (clé privée d'Alice)
-    b = int(f.readline().strip())  # Exposant (clé privée de Bob)
+f = open('param.txt', 'r')
+p = int(f.readline().strip())  # Nombre premier p (modulo)
+g = int(f.readline().strip())  # Générateur g
+a = int(f.readline().strip())  # Exposant (clé privée d'Alice)
+b = int(f.readline().strip())  # Exposant (clé privée de Bob)
+f.close()
+
 
 print("Paramètres publics : g = {}, p = {}\n".format(g, p))
 
