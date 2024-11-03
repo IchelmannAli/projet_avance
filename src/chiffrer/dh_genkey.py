@@ -22,14 +22,14 @@ def alice(q: Queue, a: int, p: int, g: int):
     print("Alice connaît sa clé privée: a = {}".format(a))
     A = puissance_mod_n(g, a, p)
     print("Alice calcule sa clé publique: A = g^a mod p = {}".format(A))
-    q.put(A)  #Alice envoie sa clé publique sur le réseau
+    q.put(A)
     print("Alice envoie A = {} sur le réseau.\n".format(A))
 
 def bob(q: Queue, b: int, p: int, g: int):
     print("Bob connaît sa clé privée: b = {}".format(b))
     B = puissance_mod_n(g, b, p)
     print("Bob calcule sa clé publique: B = g^b mod p = {}".format(B))
-    q.put(B)  #Bob envoie sa clé publique sur le réseau
+    q.put(B)
     print("Bob envoie B = {} sur le réseau.\n".format(B))
 
 
@@ -38,15 +38,12 @@ def calcul_cle(q_alice: Queue, q_bob: Queue, a: int, b: int, p: int):
     B = q_bob.get()
     print("Eve observe les valeurs échangées sur le réseau: A = {}, B = {}\n".format(A, B))
 
-    # Alice reçoit la clé publique de Bob et calcule la clé partagée
     K_A = puissance_mod_n(B, a, p)
     print("Alice reçoit B = {} et calcule la clé partagée: K_A = B^a mod p = {}".format(B, K_A))
 
-    # Bob reçoit la clé publique d'Alice et calcule la clé partagée
     K_B = puissance_mod_n(A, b, p)
     print("Bob reçoit A = {} et calcule la clé partagée: K_B = A^b mod p = {}\n".format(A, K_B))
 
-    # On vérifie que les clés sont identiques
     if K_A == K_B:
         print("Clé partagée réussie : K = {}".format(K_A))
     else:
